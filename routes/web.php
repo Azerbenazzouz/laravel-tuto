@@ -19,7 +19,12 @@ Route::get('/azers', function () {
     ]);
 });
 
+Route::get('/azers/create', function () {
+    return view('azers.create');
+});
+
 Route::get('/azers/{id}', function ($id) {
     // fetcg record with id
     return view('azers.show', ["id" => $id]);
 });
+
