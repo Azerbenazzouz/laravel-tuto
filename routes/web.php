@@ -7,5 +7,19 @@ Route::get('/', function () {
 });
 
 Route::get('/azers', function () {
-    return view('azers.index');
+    $azers = [
+        ["name" => 'Azer ben azzouz', "skill" => 44, "id" => 1],
+        ["name" => 'Amin bejaoui', "skill" => 55, "id" => 2],
+        ["name" => 'Amen hentati', "skill" => 66, "id" => 3]
+    ];
+
+    return view('azers.index', [
+        "hi" => "Hello World",
+        "azers" => $azers
+    ]);
+});
+
+Route::get('/azers/{id}', function ($id) {
+    // fetcg record with id
+    return view('azers.show', ["id" => $id]);
 });
