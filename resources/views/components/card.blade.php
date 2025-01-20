@@ -1,7 +1,7 @@
 @props(['highlight' => false])
 
-<div @class(['hignlight' => $highlight, 'card'])>
+<div @class(['highlight' => $highlight, 'card'])>
     {{ $slot }}
-    <a href="{{ $attributes->get('href') }}" class="btn">View Details</a>
+    {{-- <a href="{{ $attributes->get('href') }}" class="btn">View Details</a> --}}
     <a {{ $attributes }} class="btn">View Details</a>
 </div>
