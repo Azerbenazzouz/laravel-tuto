@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NinjaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,8 @@ Route::get('/azers', function () {
         "azers" => $azers
     ]);
 });
+
+Route::get('/ninjas',  [NinjaController::class, 'index']);
 
 Route::get('/azers/create', function () {
     return view('azers.create');

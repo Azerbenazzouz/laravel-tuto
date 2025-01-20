@@ -1,12 +1,10 @@
 <x-layout>
-  <h2>Currently Available Azers</h2>
-  <p>{{ $hi }}</p>
-
+  <h2>Currently Available Ninjas</h2>
   <ul>
-    @foreach ($azers as $azer)
+    @foreach ($ninjas as $ninja)
       <li>
-        <x-card href="/azers/{{$azer['id']}}"  :highlight="$azer['skill'] > 50">
-          <h3>{{ $azer["name"] }}</h3>
+        <x-card href="/ninjas/{{$ninja['id']}}"  :highlight="$ninja['skill'] > 50">
+          <h3>{{ $ninja["name"] }}</h3>
         </x-card>
       </li>
     @endforeach
