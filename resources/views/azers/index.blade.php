@@ -7,22 +7,20 @@
 <body>
   <h2>Currently Available Azers</h2>
   <p>{{ $hi }}</p>
+
+  @if ($hi == "Hello World")
+    <p>Hi from inside if statement</p>
+  @endif
+
   <ul>
-    <li>
-      <a href={{"/azers/".$azers[0]["id"]}}>
-        {{ $azers[0]["name"] }}
-      </a>
-    </li>
-    <li>
-      <a href={{"/azers/".$azers[1]["id"]}}>
-        {{ $azers[1]["name"] }}
-      </a>
-    </li>
-    <li>
-      <a href={{"/azers/".$azers[2]["id"]}}>
-        {{ $azers[2]["name"] }}
-      </a>
-    </li>
+    @foreach ($azers as $azer)
+      <li>
+        <p>{{ $azer["name"] }}</p>
+        <a href="/azers/{{$azer['id']}}"">
+          view Details
+        </a>
+      </li>
+    @endforeach
   </ul>
   
 </body>
