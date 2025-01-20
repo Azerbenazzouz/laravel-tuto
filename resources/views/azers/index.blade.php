@@ -5,10 +5,9 @@
   <ul>
     @foreach ($azers as $azer)
       <li>
-        <p>{{ $azer["name"] }}</p>
-        <a href="/azers/{{$azer['id']}}"">
-          view Details
-        </a>
+        <x-card href="/azers/{{$azer['id']}}"  :highlight="$azer['skill'] > 50">
+          <h3>{{ $azer["name"] }}</h3>
+        </x-card>
       </li>
     @endforeach
   </ul>
