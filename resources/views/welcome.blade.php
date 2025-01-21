@@ -11,7 +11,7 @@
     <h1>Welcome to Azer Network</h1>
     <p>Click the button bellow to view the list of Azers.</p>
 
-    <a href="/azers" class="btn mt-4 inline-block">
+    <a href="/ninjas" class="btn mt-4 inline-block">
         Find Azers!
     </a>
 </body>

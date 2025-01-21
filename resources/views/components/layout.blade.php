@@ -9,8 +9,8 @@
     <header>
         <nav>
             <h1>Azer Network</h1>
-            <a href="/azers">All Azers</a>
-            <a href="/azers/create">Create Azers</a>
+            <a href="{{ route('ninjas.index') }}">All Ninjas</a>
+            <a href="{{ route('ninjas.create') }}">Create New Ninjas</a>
         </nav>
     </header>
 
