@@ -18,11 +18,10 @@ class NinjaController extends Controller
         return view('azers.index', ['ninjas' => $ninjas]);
       }
   
-      public function show($id) {
+      public function show(Ninja $ninja) {
         // route --> /ninjas/{id}
-        // fetch a single record & pass into show view
-        $ninja = Ninja::with('dojo')->findOrFail($id);
-  
+        // fetch a single record & pass into show view  
+        $ninja->load('dojo');
         return view('azers.show', ['ninja' => $ninja]);
       }
   
@@ -49,15 +48,11 @@ class NinjaController extends Controller
         return redirect()->route('ninjas.index')->with('success', 'Ninja created successfully');
       }
   
-      public function destroy($id) {
+      public function destroy(Ninja $ninja) {
         // --> /ninjas/{id} (DELETE)
         // handle delete request to delete a ninja record from table
-        $ninja = Ninja::findOrFail($id);
         $ninja->delete();
-
         return redirect()->route('ninjas.index')->with('success', 'Ninja deleted successfully');
       }
-  
-      // edit() and update() for edit view and update requests
-      // we won't be using these routes
+
 }
