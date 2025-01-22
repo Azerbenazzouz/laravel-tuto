@@ -15,4 +15,10 @@ class Ninja extends Model
 
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
+
+    public function dojo()
+    {
+        // $ninja->dojo->name ....
+        return $this->belongsTo(Dojo::class);
+    }
 }

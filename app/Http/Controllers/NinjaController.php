@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ninja;
+use App\Models\Dojo;
 use Illuminate\Http\Request;
 
 class NinjaController extends Controller
@@ -12,7 +13,7 @@ class NinjaController extends Controller
         // fetch all records & pass into the index view
   
         // $ninjas = Ninja::all();
-        $ninjas = Ninja::orderBy('created_at', 'desc')->paginate(10);
+        $ninjas = Ninja::with('dojo')->orderBy('created_at', 'desc')->paginate(10);
   
         return view('azers.index', ['ninjas' => $ninjas]);
       }
@@ -20,7 +21,7 @@ class NinjaController extends Controller
       public function show($id) {
         // route --> /ninjas/{id}
         // fetch a single record & pass into show view
-        $ninja = Ninja::findOrFail($id);
+        $ninja = Ninja::with('dojo')->findOrFail($id);
   
         return view('azers.show', ['ninja' => $ninja]);
       }
@@ -28,7 +29,9 @@ class NinjaController extends Controller
       public function create() {
         // route --> /ninjas/create
         // render a create view (with web form) to users
-        return view('azers.create');
+        $dojos = Dojo::all();
+        
+        return view('azers.create', ['dojos' => $dojos]);
       }
   
       public function store() {
