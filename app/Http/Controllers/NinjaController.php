@@ -46,7 +46,7 @@ class NinjaController extends Controller
 
         Ninja::create($validated);
 
-        return redirect()->route('ninjas.index');
+        return redirect()->route('ninjas.index')->with('success', 'Ninja created successfully');
       }
   
       public function destroy($id) {
@@ -55,7 +55,7 @@ class NinjaController extends Controller
         $ninja = Ninja::findOrFail($id);
         $ninja->delete();
 
-        return redirect()->route('ninjas.index');
+        return redirect()->route('ninjas.index')->with('success', 'Ninja deleted successfully');
       }
   
       // edit() and update() for edit view and update requests

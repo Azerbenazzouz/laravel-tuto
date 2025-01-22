@@ -13,6 +13,11 @@
             <a href="{{ route('ninjas.create') }}">Create New Ninjas</a>
         </nav>
     </header>
+    @if (session('success'))
+        <div id="flash" class="p-4 text-center bg-green-50 text-green-500 font-bold">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main class="container">
         {{ $slot }}
