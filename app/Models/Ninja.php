@@ -11,6 +11,7 @@ class Ninja extends Model
         'name',
         'skill',
         'bio',
+        'dojo_id',
     ];
 
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
